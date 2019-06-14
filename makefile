@@ -28,6 +28,9 @@ python: clean
 neko: clean
 	haxe -cp src -main Main -dce full --no-traces -neko out/gaufre.n
 
+lua: clean
+	haxe -cp src -main Main -dce full --no-traces -lua out/gaufre.lua
+
 # -------------------------
 # Debug version
 

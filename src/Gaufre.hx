@@ -8,6 +8,9 @@ import IO;
 @:keepSub
 class Gaufre {
 
+    //Version of the interpreter
+    public static inline var G_VERSION = "0.0.0";
+
     //Cell memory
     var memory:Array<Int>;
 
