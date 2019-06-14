@@ -18,7 +18,6 @@ class FileParser {
         // Split at every '\n' char
         var splitedString:Array<String> = input.split("\n");
 
-
         //Final GOpcodes array
         var GOpcodeArray:Array<GOpcodes> = [];
 
@@ -37,7 +36,7 @@ class FileParser {
             //Check line - DEBUG
             trace(currentLine);
 
-            //Add elements if the array is too short (<3)
+            //Add elements if the array is too short (< 3)
             var elements = currentLine.length;
 
             while (elements < 4) {
@@ -48,10 +47,19 @@ class FileParser {
             //Check line - DEBUG
             trace(currentLine);
 
-            //Convert this array to GOpcode and push it to the GOpcode array
-            GOpcodeArray.push(IntToOpcode(currentLine[0], currentLine[1], currentLine[2], currentLine[3]));
+            //Convert int -> opcode 
+            var convertedOpcode = IntToOpcode(currentLine[0], currentLine[1], currentLine[2], currentLine[3]);
+
+            //Check instruction - Debug
+            trace("Opcode : " + convertedOpcode);
+
+            //Push instruction to Array - Check if the opcode exists
+            if (convertedOpcode != null) 
+                GOpcodeArray.push(convertedOpcode);
         }
 
+        //We have done parsing - Debug:
+        trace("Done parsing - Fetched " + GOpcodeArray.length + " instruction(s)");
 
         return GOpcodeArray;
     }
@@ -60,7 +68,7 @@ class FileParser {
     //TODO: Make it a lot better
     public static function IntToOpcode (opcodeId:Int, opCodeArg1:Int, opCodeArg2:Int, opCodeArg3:Int ) {
         
-        var returnOpcode:GOpcodes = GOpcodes.OP_NONE;
+        var returnOpcode:GOpcodes = null;
 
         switch (opcodeId) {
             case 1: returnOpcode = GOpcodes.OP_EXIT;
@@ -73,6 +81,7 @@ class FileParser {
             case 8: returnOpcode = GOpcodes.OP_INPUT;
             case 9: returnOpcode = GOpcodes.OP_OUTPUT;
             case 10: returnOpcode = GOpcodes.OP_NONE;
+            default: /* Ignore conversion */
         }
 
         return returnOpcode;

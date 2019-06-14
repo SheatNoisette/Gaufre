@@ -13,12 +13,9 @@ class Main {
 
         //Get program arguments 
         var ProgramArgs = Sys.args();
-        
-        Fp.ParseString("#### #####\n###### #");
-        //gaufre.LoadProgram(Fp.ParseString("#### #####\n###### #"));
 
         if (ProgramArgs.length == 2) {
-
+            
         } else {
             Sys.println("- # Gaufre interpreter -");
             Sys.println("Usage : <File> <Number of memory cells>");

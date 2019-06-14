@@ -65,8 +65,8 @@ class Gaufre {
             case OP_DEC (number): AddMemory(-number);
             case OP_MEM_LEFT (move): memoryPointer = (memoryPointer + move) % memoryLength;
             case OP_MEM_RIGHT (move): memoryPointer = Utils.IntAbs((memoryPointer - move) % memoryLength);
-            case OP_GOTO(line): pc = line;            
-            case OP_GOTOEQ(var1, var2, line): pc = var1 == var2 ? line : pc;            
+            case OP_GOTO(line): pc = line - 1;            
+            case OP_GOTOEQ(var1, var2, line): pc = var1 == var2 ? line - 1 : pc;            
             case OP_INPUT:            
             case OP_OUTPUT:            
             case OP_NONE: /* Do nothing */
@@ -92,7 +92,11 @@ class Gaufre {
     }
 
     //Add a instruction to the program array
-    public function PushInstruction(inst:GOpcodes) {
+    public function PushInstruction(inst:GOpcodes):Void {
+        //Debug - What's really pushed
+        trace("Pushed :");
+        trace(inst);
+
         program.push(inst);
     }
 
