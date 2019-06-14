@@ -7,7 +7,28 @@ class FileParser {
 
     //Read a file and generate a array of GOpcodes - Disabled in JS
     #if !js
-    public static function ParseFile(){
+    public static function ParseFile(path:String) {
+        
+        //String containing opcodes
+        var input:String = "";
+
+        //Open file
+        var file = sys.io.File.read(path, false);
+
+        //Try reading the file line by line
+        try {
+            
+            while (true) {
+                input += file.readLine() + "\n";
+            }
+
+        } catch (e:haxe.io.Eof) {}
+
+        //Close the file
+        file.close();
+
+        //Parse string
+        return ParseString(input);
 
     }
     #end

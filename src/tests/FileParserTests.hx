@@ -29,6 +29,21 @@ class FileParserTests extends haxe.unit.TestCase {
         [GOpcodes.OP_EXIT, GOpcodes.OP_INC(1), GOpcodes.OP_DEC(7)].toString());
     }
 
+    //Simple test - Read a file
+    public function testBasicReadAndParse ():Void {
+
+        assertEquals(Fp.ParseFile("test/test_simplefile.gfr").toString(), 
+        [GOpcodes.OP_INC(5), GOpcodes.OP_DEC(1), GOpcodes.OP_DEC(3), GOpcodes.OP_EXIT].toString());
+    }
+
+    //Simple test - Read a file with garbage char
+    public function testBasicReadFileGarbage ():Void {
+
+        assertEquals(Fp.ParseFile("test/test_garbage.gfr").toString(), 
+        [GOpcodes.OP_INC(5), GOpcodes.OP_DEC(1), GOpcodes.OP_DEC(3), GOpcodes.OP_EXIT].toString());
+    }
+    
+
     //----------------------
     //Advanced tests
 
@@ -40,5 +55,12 @@ class FileParserTests extends haxe.unit.TestCase {
         //Parse the content
         assertEquals(Fp.ParseString(input).toString(), 
         [GOpcodes.OP_EXIT,GOpcodes.OP_DEC(2),GOpcodes.OP_GOTOEQ(1,2,3)].toString());
+    }
+
+    //Advanced test - Read a file with comments inside
+    public function testAdvancedReadFileGarbage ():Void {
+
+        assertEquals(Fp.ParseFile("test/test_comments.gfr").toString(), 
+        [GOpcodes.OP_INC(5), GOpcodes.OP_DEC(1), GOpcodes.OP_DEC(3), GOpcodes.OP_EXIT].toString());
     }
 }

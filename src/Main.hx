@@ -14,11 +14,11 @@ class Main {
         //Get program arguments 
         var ProgramArgs = Sys.args();
 
-        if (ProgramArgs.length == 2) {
-            
+        if (ProgramArgs.length == 3) {
+
         } else {
             Sys.println("- # Gaufre interpreter -");
-            Sys.println("Usage : <File> <Number of memory cells>");
+            Sys.println("Usage : <File> <Number of memory cells> <Size of the cells>");
         }
         
     }
