@@ -1,24 +1,9 @@
 # Gaufre programming language
 Yet another simple esoteric language.
 
-# Instructions - Opcodes
+# Building the interpreter
 
-`#: Exit`
 
-`## : Increment memory cell X times (1 argument)`
+# How to do things with Gaufre
 
-`### : Decrement memory cell X times (1 argument)`
-
-`#### : Move left the memory cursor X times (1 argument)`
-
-`##### :Move right the memory cursor X times (1 agument)`
-
-`###### : Go to line X (1 Argument)`
-
-`####### : Is A == B ? Then Go to line X else do nothing (3 arguments: A - B - X )`
-
-`######## : Print a char (1 argument)`
-
-`######### : Get a char from the console input and place it to the current memory cell (char id to ASCII)`
-
-If there no argument provided, Gaufre will use the value of the current selected cell instead.
+See `GaufreManual.md` for more details
