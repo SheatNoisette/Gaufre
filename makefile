@@ -11,6 +11,7 @@ clean:
 
 # -------------------------
 # Self check - auto-tests
+
 autotest:
 	haxe -cp src -main MainSelfTest -debug --no-traces -neko gaufre_tests.n
 	neko gaufre_tests.n

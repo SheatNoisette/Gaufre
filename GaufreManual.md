@@ -19,3 +19,6 @@
 `######### : Get a char from the console input and place it to the current memory cell (char id to ASCII)`
 
 If there no argument provided, Gaufre will use the value of the current selected cell instead.
+
+# Examples
+@TODO
