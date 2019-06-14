@@ -1,0 +1,13 @@
+*.n
+*.swp
+*.js
+*.c
+*.cpp
+*.h
+*.hpp
+*.map
+*.py
+*.lua
+
+# Vs code
+.vscode/
