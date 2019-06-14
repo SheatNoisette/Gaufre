@@ -8,6 +8,7 @@
 *.map
 *.py
 *.lua
+out/
 
 # Vs code
 .vscode/
