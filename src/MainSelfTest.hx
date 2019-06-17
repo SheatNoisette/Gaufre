@@ -18,6 +18,9 @@ class MainSelfTest {
         //Test class: FileParser
         runner.add(new FileParserTests());
 
+        //Test class: GaufreTests
+        runner.add(new GaufreTests());
+
         //Run tests
         runner.run();
     }

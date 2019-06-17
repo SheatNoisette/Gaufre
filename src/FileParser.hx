@@ -50,14 +50,8 @@ class FileParser {
             //Split at space to count number of '#' char
             var currentLine:Array<Dynamic> = line.split(" ");
 
-            //Check line - DEBUG
-            trace(currentLine);
-
             //Count the number of '#' in each line
             currentLine = [for (e in currentLine) Utils.CountChar(e, "#")];
-            
-            //Check line - DEBUG
-            trace(currentLine);
 
             //Add elements if the array is too short (< 3)
             var elements = currentLine.length;
@@ -66,9 +60,6 @@ class FileParser {
                 currentLine.push(null);
                 elements++;
             }
-            
-            //Check line - DEBUG
-            trace(currentLine);
 
             //Convert int -> opcode 
             var convertedOpcode = IntToOpcode(currentLine[0], currentLine[1], currentLine[2], currentLine[3]);

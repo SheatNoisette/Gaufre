@@ -10,8 +10,6 @@ import FileParser as Fp;
 class Main {
     public static function main() {
 
-
-
         //Get program arguments 
         var ProgramArgs = Sys.args();
 
@@ -38,7 +36,6 @@ class Main {
 
             //Check parsed value - Debugs
             trace("Memory size: " + parsedMemorySize);
-            
             
             if (parsedMemorySize <= 0 || parsedMemorySize == null) {
                 Sys.println("Error: The memory size is invalid");

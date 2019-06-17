@@ -12,7 +12,7 @@ class Gaufre {
     public static inline var G_VERSION = "0.0.0";
 
     //Cell memory
-    var memory:Array<Int>;
+    public var memory:Array<Int>;
 
     //Pointer to memory
     var memoryPointer:Int = 0;
@@ -21,13 +21,13 @@ class Gaufre {
     var memorySize:Int;
 
     //Program counter
-    var pc:Int = -1;
+    public var pc:Int = -1;
 
     //Length of the memory array
     var memoryLength:Int;
 
     //Instructions
-    var program:Array<GOpcodes>;
+    public var program:Array<GOpcodes>;
 
     //Quit the interpreter
     var exitGaufre = false;
@@ -51,11 +51,13 @@ class Gaufre {
 
     //Execute instructions one by one 
     public function Run() {
-
-        //Check if we want to qui the interpreter or when the program counter exceed the program size 
-        while (!exitGaufre && pc < program.length) {
+        //Check if we want to quit the interpreter or when the program counter exceed the program size 
+        while (!exitGaufre && pc < program.length - 1) {
             pc++;
             RunInstruction(program[pc]);
+
+            //Print state of the interpreter - Debug
+            trace("PC: " + pc + " Inst: " + program[pc]);
         }
     }
 
@@ -97,8 +99,7 @@ class Gaufre {
     //Add a instruction to the program array
     public function PushInstruction(inst:GOpcodes):Void {
         //Debug - What's really pushed
-        trace("Pushed :");
-        trace(inst);
+        trace("Pushed : " + inst);
 
         program.push(inst);
     }
@@ -116,7 +117,7 @@ class Gaufre {
     #if debug
 
     //Print every memory cell
-    private function PrintMemory() {
+    public function PrintMemory() {
 
         for (m in memory) {
             Sys.print(memory + " | ");
@@ -125,8 +126,12 @@ class Gaufre {
     }
 
     //Print program
-    private function PrintProgram() {
+    public function PrintProgram() {
+        var line:Int = 0;
 
+        for (inst in program) {
+            Sys.println((line++) +": " + inst);
+        }
     }
     #end
 }
