@@ -16,6 +16,8 @@ class FileParser {
         var file = sys.io.File.read(path, false);
 
         //Try reading the file line by line
+        //TODO: Find a less hacky way to read the file
+
         try {
             
             while (true) {
