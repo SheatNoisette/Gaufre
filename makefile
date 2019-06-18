@@ -1,6 +1,6 @@
 all: release
 
-release: jslib python neko
+release: python neko lua
 
 debug: debug-neko
 
