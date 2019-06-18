@@ -16,9 +16,9 @@
 
 `######## : Print a char (1 argument)`
 
-`######### : Get a char from the console input and place it to the current memory cell (char id to ASCII)`
+`######### : Get a char from the console input and place it to the current memory cell`
 
-If there no argument provided, Gaufre will use the value of the current selected cell instead.
+If there no argument provided, Gaufre will use the value of the current selected cell instead. Unecessary arguments will be discarded.
 
 # Examples
 @TODO

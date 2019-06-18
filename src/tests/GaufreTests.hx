@@ -7,7 +7,7 @@ import GaufreInstruction;
 //Test the Gaufre interpreter
 class GaufreTests extends haxe.unit.TestCase {
     //Create a Gaufre instance for testing
-    var gaufre = new Gaufre(32, 64);
+    var gaufre:Gaufre;
 
     //---------------------------
     //Basic tests
@@ -15,7 +15,7 @@ class GaufreTests extends haxe.unit.TestCase {
     //Test Increment (OP_INC) and Decrement (OP_DEC) with arguments
     public function testIncDecArgs():Void {
         //Reset Gaufre instance
-        var gaufre = new Gaufre(32, 64);
+        gaufre = new Gaufre(32, 64);
 
         var program = [
             GOpcodes.OP_INC(5),
@@ -39,7 +39,7 @@ class GaufreTests extends haxe.unit.TestCase {
     //Test Memory cursors OP_MEM_LEFT and OP_MEM_RIGHT
     public function testMemArgs():Void {
         //Reset Gaufre instance
-        var gaufre = new Gaufre(32, 64);
+        gaufre = new Gaufre(32, 64);
 
         var program = [
             GOpcodes.OP_MEM_RIGHT(3),
@@ -66,7 +66,7 @@ class GaufreTests extends haxe.unit.TestCase {
     //Test OP_GOTO with arguments
     public function testGotoArgs():Void {
         //Reset Gaufre instance
-        var gaufre = new Gaufre(32, 64);
+        gaufre = new Gaufre(32, 64);
         
         var program = [
             GOpcodes.OP_INC(5),

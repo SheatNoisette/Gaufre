@@ -3,7 +3,7 @@ Yet another simple esoteric language.
 
 ## Building the interpreter
 
-The Gaufre interpreter is implemented using [Haxe Toolkit](https://haxe.org) v3.4.x. You will need the [NekoVM](https://nekovm.org/) to launch the interpreter.
+The Gaufre interpreter is implemented using [Haxe Toolkit](https://haxe.org) v3.4.x, Haxe 4+ is currently not supported. You will need the [NekoVM](https://nekovm.org/) to launch the interpreter.
 You can get Haxe on your computer by following this [link](https://haxe.org/download/linux/). NekoVM will automatically install itself using this method.
 
 Then, you can build the interpreter by typing `make`.
@@ -12,7 +12,7 @@ A new folder named `out` will appear. Inside, you will find every supported vers
 
 ## Hacking the interpreter
 
-Custom versions of the interpreter can be built. 
+Custom debug versions of the interpreter can be built. 
 
 `make autotest` : Build Gaufre with built-in unit tests with traces disabled
 

@@ -11,7 +11,7 @@ enum GOpcodes {
     //Var1 == Var2 ? goto line
     OP_GOTOEQ (var1:Int, var2:Int, line:Int);
     OP_INPUT;
-    OP_OUTPUT;
+    OP_OUTPUT (charid:Int);
     //Default opcode
     OP_NONE;
 }

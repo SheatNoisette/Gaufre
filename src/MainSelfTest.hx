@@ -21,6 +21,9 @@ class MainSelfTest {
         //Test class: GaufreTests
         runner.add(new GaufreTests());
 
+        //Test class: OverflowTests
+        runner.add(new OverflowTests());
+
         //Run tests
         runner.run();
     }
