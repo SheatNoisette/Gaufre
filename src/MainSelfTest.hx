@@ -23,6 +23,9 @@ class MainSelfTest {
 
         //Test class: OverflowTests
         runner.add(new OverflowTests());
+        
+        //Test class: FuzzerTests
+        runner.add(new FuzzerTests());
 
         //Run tests
         runner.run();

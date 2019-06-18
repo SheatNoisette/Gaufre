@@ -24,4 +24,6 @@ See `GaufreManual.md` for more details.
 
 ## Licence
 
-This work is released under the GNU GENERAL PUBLIC LICENSE v3.0. A copy of this licence is provided in `LICENCE.md`.
+This work is released under the GNU GENERAL PUBLIC LICENSE v3.0. 
+
+A copy of this licence is provided in `LICENCE.md`.
