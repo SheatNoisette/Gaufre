@@ -34,7 +34,7 @@ class Gaufre {
     var exitGaufre = false;
 
     //Supported characters
-    static var charMap:String = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890\n";
+    static var charMap:String = " ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!?,;:\n";
 
     //Create a Gaufre instance
     public function new(?cellMemory:Int = 100, ?maxCellSize:Int = 255) {
@@ -75,8 +75,8 @@ class Gaufre {
             case OP_MEM_RIGHT (move): MoveMemRight(move);
             case OP_GOTO(line): Goto(line);          
             case OP_GOTOEQ(var1, var2, line): GotoEquals(var1, var2, line);           
-            case OP_INPUT: Sys.println("UNIMPLEMENTED");          
             case OP_OUTPUT (char): PrintChar(char);
+            case OP_INPUT: Sys.println("UNIMPLEMENTED");          
             case OP_NONE: /* Do nothing */
             default:
                 trace("Invalid opcode detected!");
@@ -124,7 +124,8 @@ class Gaufre {
         charCode = NullReplace(charCode);
 
         //Check if we exceed the size of the string
-        var finalCharcodeId = charCode <= charMap.length - 1 ? charCode : charMap.length - 1;
+        //charCode - 1 -> It can't be at 0, arguments are always >= 1
+        var finalCharcodeId = charCode <= charMap.length - 1 ? charCode - 1 : charMap.length - 1;
 
         IO.Print(charMap.charAt(finalCharcodeId));
     }
