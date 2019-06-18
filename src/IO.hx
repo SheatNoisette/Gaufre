@@ -1,12 +1,14 @@
 package;
 
-class IO {
+class IO { 
 
+    //Print a string into console
     public static function Print(text:String):Void {
 
     }
 
-    public static function GetInput():Void {
-
+    //Get the user input
+    public static function GetInput():String {
+        return "";
     }
 }

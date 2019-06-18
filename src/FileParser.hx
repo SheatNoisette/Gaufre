@@ -93,7 +93,7 @@ class FileParser {
             case 6: returnOpcode = GOpcodes.OP_GOTO (opCodeArg1);
             case 7: returnOpcode = GOpcodes.OP_GOTOEQ (opCodeArg1, opCodeArg2, opCodeArg3);
             case 8: returnOpcode = GOpcodes.OP_INPUT;
-            case 9: returnOpcode = GOpcodes.OP_OUTPUT;
+            case 9: returnOpcode = GOpcodes.OP_OUTPUT(opCodeArg1);
             case 10: returnOpcode = GOpcodes.OP_NONE;
             default: /* Ignore conversion */
         }

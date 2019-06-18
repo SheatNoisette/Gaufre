@@ -1,5 +1,7 @@
 package;
 
+using haxe.Utf8;
+
 import GaufreInstruction;
 import IO;
 import Utils;
@@ -8,7 +10,7 @@ import Utils;
 class Gaufre {
 
     //Version of the interpreter
-    public static inline var G_VERSION = "0.0.0";
+    public static inline var G_VERSION = "0.0.5";
 
     //Cell memory
     public var memory:Array<Int>;
@@ -30,6 +32,9 @@ class Gaufre {
 
     //Quit the interpreter
     var exitGaufre = false;
+
+    //Supported characters
+    static var charMap:String = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890\n";
 
     //Create a Gaufre instance
     public function new(?cellMemory:Int = 100, ?maxCellSize:Int = 255) {
@@ -70,8 +75,8 @@ class Gaufre {
             case OP_MEM_RIGHT (move): MoveMemRight(move);
             case OP_GOTO(line): Goto(line);          
             case OP_GOTOEQ(var1, var2, line): GotoEquals(var1, var2, line);           
-            case OP_INPUT:            
-            case OP_OUTPUT:            
+            case OP_INPUT: Sys.println("UNIMPLEMENTED");          
+            case OP_OUTPUT (char): PrintChar(char);
             case OP_NONE: /* Do nothing */
             default:
                 trace("Invalid opcode detected!");
@@ -80,29 +85,29 @@ class Gaufre {
 
     }
 
-    //Opcodes handler
+    //Opcodes handlers
 
-    //Move memory cursor on the left
-    private function MoveMemLeft(move:Int) {
+    // Move memory cursor on the left
+    private function MoveMemLeft(move:Int):Void {
 
         move = NullReplace(move);
         memoryPointer = (memoryPointer + move) % memoryLength;
     }
     
-    //Move memory cursor on the right
-    private function MoveMemRight(move:Int) {
+    // Move memory cursor on the right
+    private function MoveMemRight(move:Int):Void {
 
         move = NullReplace(move);
         memoryPointer = Utils.IntAbs((memoryPointer - move) % memoryLength);
     }
 
-    //Goto without conditions
-    private function Goto(line:Int) {
+    // Goto without conditions
+    private function Goto(line:Int):Void {
         GotoEquals(0, 0, line);
     }
 
-    //Goto when var1 == var2
-    private function GotoEquals(var1:Int, var2:Int, line:Int) {
+    // Goto when var1 == var2
+    private function GotoEquals(var1:Int, var2:Int, line:Int):Void {
         
         //Update values
         var1 = NullReplace(var1);
@@ -114,7 +119,17 @@ class Gaufre {
         }
     }
 
-    //If a instruction has no argument, take the current selected memory cell value
+    // Output a string/char to console
+    private function PrintChar(charCode:Int):Void {
+        charCode = NullReplace(charCode);
+
+        //Check if we exceed the size of the string
+        var finalCharcodeId = charCode <= charMap.length - 1 ? charCode : charMap.length - 1;
+
+        IO.Print(charMap.charAt(finalCharcodeId));
+    }
+
+    // If a instruction has no argument, take the current selected memory cell value
     private function NullReplace(input:Int) {
         return input == null ? memory[memoryPointer] : input;
     }
