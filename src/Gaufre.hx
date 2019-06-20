@@ -174,11 +174,19 @@ class Gaufre {
     
     #if debug
 
+    //Print the state of the interpreter such as pc, Memory,...
+    public function PrintState() {
+        Sys.println("PC: " + pc);
+        Sys.println("Number of instructions loaded: " + program.length);
+        Sys.println("Memory: ");
+        PrintMemory();
+    }
+
     //Print every memory cell
     public function PrintMemory() {
 
         for (m in memory) {
-            Sys.print(memory + " | ");
+            Sys.print(m + " | ");
         }
 
     }
