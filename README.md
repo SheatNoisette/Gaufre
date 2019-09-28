@@ -1,9 +1,12 @@
 # Gaufre programming language
 Yet another simple esoteric language.
 
+[![Build status](https://ci.appveyor.com/api/projects/status/3eqyc8y5q4f2sf8f?svg=true)](https://ci.appveyor.com/project/SheatNoisette/gaufre)
+
 ## Building the interpreter
 
-The Gaufre interpreter is implemented using [Haxe Toolkit](https://haxe.org) v3.4.x, Haxe 4+ is currently not supported. You will need the [NekoVM](https://nekovm.org/) to launch the interpreter.
+The Gaufre interpreter is implemented using [Haxe Toolkit](https://haxe.org) v3.4.x, Haxe 4+ is currently not supported. 
+You will need the [NekoVM](https://nekovm.org/) to launch the interpreter.
 You can get Haxe on your computer by following this [link](https://haxe.org/download/linux/). NekoVM will automatically install itself using this method.
 
 Then, you can build the interpreter by typing `make`.
