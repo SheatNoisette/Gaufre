@@ -33,6 +33,4 @@ install:
 build: off
 
 test_script:
-  - make neko && neko out/gaufre.n
-  - make lua && lua out/gaufre.lua
-  - make autotest
+  - haxe -cp src -main MainSelfTest -debug --no-traces -neko gaufre_tests.n && neko gaufre_tests.n
